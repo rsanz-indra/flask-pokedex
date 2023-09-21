@@ -13,6 +13,12 @@ pipeline {
                sh "echo $DOCKERHUB_CREDENCIALS_PSW | docker login -u $DOCKERHUB_CREDENCIALS_USR --password-stdin "
             }
         }
+
+        stage('Build'){
+            steps{
+                sh "docker build -t ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ."
+            }
+        }
         
        
     }
