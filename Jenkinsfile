@@ -7,11 +7,12 @@ pipeline {
     }
 
     stages {
-         stage('Echo'){
-             steps{
-                sh "echo $DOCKERHUB_CREDENCIALS_USR / $DOCKERHUB_CREDENCIALS_PSW"
+        
+         stage('Login to Dockerhub'){
+            steps{
+                sh "docker login -u rasanvil -p Chiquito99 "
             }
-         }
+        }
         
        
     }
